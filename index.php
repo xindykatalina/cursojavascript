@@ -16,8 +16,6 @@ $data ='{
   ]
 }';
 
-
-//["573188061583","573184716161"]
  $numbers = [];
  $callSteps = [];
 
@@ -29,30 +27,70 @@ $data ='{
 //echo "<br/> from".$from;
 
 foreach ($toList as $number) {
-	/*$object = new \stdClass();
-	$object->numero = $number;
-	$numbers[] = $object;
-	$object->text = $d['text'];*/
-
-	//echo "<br/> number ".$number;
-
-
+	$numero = $number;
 
 }
 foreach ($someArray['callSteps'] as $d) {
 
-	$object = new \stdClass();
-	$object->type = $d['type'];
-	$object->text = $d['text'];
-	$object->voice = $d['voice'];
-	$object->sourceType = $d['sourceType'];
-	$callSteps[] = $object;
-
-	/*echo "<br/> type ".$d['type'];
-	echo "<br/> text ".$d['text'];
-	echo "<br/> voice ".$d['voice'];
-	echo "<br/> sourceType ".$d['sourceType'];*/
+	$type = $d['type'];
+	$text = $d['text'];
+	$voice = $d['voice'];
+	$sourceType = $d['sourceType'];
 }
-var_dump($callSteps);
-die();
 ?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title style="text-align: center">Llamadas</title>
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="index.css">
+
+	</head>
+	<body>
+
+		<div id="app-container">
+			<header>
+				<h1 style="text-align: center">Llamadas</h1>
+			</header>
+			<section id="app-body">
+				<table border="1">
+					<thead>
+						<tr>
+							<th>Numeros</th>
+						</tr>
+						<tr>
+							<th>Caracteristicas</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						foreach ($toList as $number) {
+					?>
+						<tr>
+							<td><?php echo $number ?></td>
+						</tr>
+					<?php } ?>
+					<?php
+						foreach ($someArray['callSteps'] as $d) {
+					?>
+						<tr>
+							<td><?php echo $d['type'] ?></td>
+							<td><?php echo $d['text'] ?></td>
+							<td><?php echo $d['voice'] ?></td>
+							<td><?php echo $d['sourceType'] ?></td>
+						</tr>
+					<?php } ?>
+					</tbody>
+				</table>
+			</section>
+			<footer id="app-footer">
+				<p>Hecho con &lt;3 por los alumnos de platzi </p>
+			</footer>
+		</div>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+
+	</body>
+</html
